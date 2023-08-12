@@ -16,7 +16,7 @@ class Room(models.Model):
     topic = models.ForeignKey(Topic, on_delete=models.SET_NULL, null=True) #ONE-TO-MANY RELATIONSHIP
     name = models.CharField(max_length = 200)
     description = models.TextField(null = True, blank = True) #null=True tells that this field can't be null or empty
-    #participant = 
+    participants = models.ManyToManyField(User, related_name='participants', blank=True)
     updated = models.DateTimeField(auto_now = True)
     created = models.DateTimeField(auto_now_add = True)
 
